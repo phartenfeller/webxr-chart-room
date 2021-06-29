@@ -32,6 +32,9 @@ jobs:
       - name: yarn install
         if: steps.cacheNodeModules.outputs.cache-hit != 'true'
         run: yarn install
+        
+      - name: yarn build
+        run: yarn build-demo
 
       - name: GitHub Pages
         # You may pin to the exact commit or the version.
