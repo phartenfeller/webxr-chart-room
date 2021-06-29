@@ -28,8 +28,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
       - name: yarn install
         if: steps.cacheNodeModules.outputs.cache-hit != 'true'
@@ -45,3 +43,5 @@ jobs:
         with:
           # Build directory to deploy
           build_dir: demo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
