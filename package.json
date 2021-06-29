@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "aframe": "^1.2.0",
-    "lit": "^2.0.0-rc.1"
+    "lit": "^2.0.0-rc.1",
+    "remove-files-webpack-plugin": "^1.4.5"
   }
 }
