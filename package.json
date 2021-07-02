@@ -12,6 +12,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.0.6",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "terser-webpack-plugin": "^5.1.1",
@@ -23,7 +24,8 @@
     "start": "npx webpack-cli serve --open --mode=development --config webpack.dev.js",
     "build": "npm-run-all build-demo build-only-js",
     "build-demo": "npx webpack-cli --mode=production --config webpack.demo.js",
-    "build-only-js": "npx webpack-cli --mode=production --config webpack.only-js.js"
+    "build-only-js": "npx webpack-cli --mode=production --config webpack.only-js.js",
+    "test": "jest"
   },
   "dependencies": {
     "aframe": "^1.2.0",

@@ -7,7 +7,17 @@
 
 <body>
   <h1>WebXR examples</h1>
-  <div style="display: grid; grid-template-columns: repeat(1,minmax(0,1fr));">
-    <my-component text="Hello World"></my-component>
+  <div id="content" style="display: grid; grid-template-columns: repeat(1,minmax(0,1fr));">
+
   </div>
+
+  <script>
+    const data = [{ x: "Germany", y: 15 }, { x: "Austria", y: 7 }, { x: "Netherlands", y: 2 }];
+
+    const el = document.createElement('my-component');
+    el.data = JSON.stringify(data)
+
+    const conte = document.querySelector('#content');
+    conte.appendChild(el)
+  </script>
 </body>
