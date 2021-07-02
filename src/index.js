@@ -11,17 +11,33 @@ class MyComponent extends LitElement {
   @property({ type: JSON })
   charts;
 
+  @property({ type: Boolean })
+  cursor = true;
+
   /* Do not create shadow dom */
   createRenderRoot() {
     return this;
   }
 
   render() {
-    console.log(this.charts);
     return html`
       <div style="min-height: 500px; border: 1px solid black;">
         <a-scene embedded style="height: 800px; width:100%;">
-          <!-- <a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"></a-box> -->
+          <a-camera>
+            ${
+              this.cursor
+                ? html` <a-entity
+                    cursor
+                    position="0 0 -1"
+                    geometry="primitive: sphere; radius: 0.005"
+                    material="color: #000; shader: flat; opacity: 0.6"
+                  ></a-entity>`
+                : null
+            }
+          </a-camera>
+
+          <a-sky></a-sky>
+
           <a-entity
             chartstand="width: 1; height: 1; depth: 1; color: orange"
             position="0 0 -5"

@@ -93,6 +93,7 @@ export default function init(instance) {
       titleEl.setAttribute('material', {
         color: '#000',
         shader: 'flat',
+        side: 'double',
       });
       this.el.appendChild(titleEl);
     },

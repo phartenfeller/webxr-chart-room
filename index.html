@@ -7,6 +7,13 @@
 
 <body>
   <h1>WebXR examples</h1>
+
+  <span>Cursor</span>
+  <select id="cursor-select" name="cursor">
+    <option value="yes" checked>Yes</option>
+    <option value="no">No</option>
+  </select>
+
   <div id="content" style="display: grid; grid-template-columns: repeat(1,minmax(0,1fr));">
 
   </div>
@@ -22,5 +29,13 @@
 
     const conte = document.querySelector('#content');
     conte.appendChild(el)
+
+    document.querySelector('#cursor-select').addEventListener('change', (e) => {
+      if (e.target.value === 'no') {
+        el.cursor = false;
+      } else {
+        el.cursor = true;
+      }
+    })
   </script>
 </body>
