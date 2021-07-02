@@ -8,8 +8,8 @@ import initAll from './aframe-components';
 initAll(AFRAME);
 @customElement('my-component')
 class MyComponent extends LitElement {
-  @property({ type: String })
-  data;
+  @property({ type: JSON })
+  charts;
 
   /* Do not create shadow dom */
   createRenderRoot() {
@@ -17,6 +17,7 @@ class MyComponent extends LitElement {
   }
 
   render() {
+    console.log(this.charts);
     return html`
       <div style="min-height: 500px; border: 1px solid black;">
         <a-scene embedded style="height: 800px; width:100%;">
@@ -25,9 +26,21 @@ class MyComponent extends LitElement {
             chartstand="width: 1; height: 1; depth: 1; color: orange"
             position="0 0 -5"
           ></a-entity>
-          <a-entity
-            barchart="data: ${this.data};"
-            position="0 0 -10"
+          ${this.charts.map(
+            (chart) =>
+              html`
+                <a-entity
+                  barchart="data: ${JSON.stringify(
+                    chart.data
+                  )}; title: ${chart.title};"
+                  position="0 0 -10"
+                ></a-entity>
+              `
+          )}
+          <a-entityw
+            geometry="primitive: box; height: 2; width: 0.25; depth: 0.25"
+            color="#823943"
+            position="0 0 -3"
           ></a-entity>
           <a-plane
             position="0 0 -4"

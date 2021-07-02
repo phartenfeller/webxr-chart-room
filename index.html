@@ -12,10 +12,13 @@
   </div>
 
   <script>
-    const data = [{ x: "Germany", y: 15 }, { x: "Austria", y: 7 }, { x: "Netherlands", y: 2 }];
+    const charts = [{
+      title: "Countries by Random",
+      data: [{ x: "Germany", y: 15 }, { x: "Austria", y: 7 }, { x: "Netherlands", y: 2 }, { x: "Greece", y: 12 }, { x: "Spain", y: 10 }]
+    }];
 
     const el = document.createElement('my-component');
-    el.data = JSON.stringify(data)
+    el.charts = charts;
 
     const conte = document.querySelector('#content');
     conte.appendChild(el)
